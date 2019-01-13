@@ -5,7 +5,9 @@ new Vue({
     return {
       url: "https://widgets.coingecko.com/coingecko-coin-converter-widget.js",
       ceName: "coingecko-coin-converter-widget",
-      inputs: []
+      inputs: [],
+      height: "300",
+      width: "600"
     };
   },
   methods: {

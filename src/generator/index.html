@@ -27,6 +27,16 @@
           <h3>Custom Element Name</h3>
           <input type="text" v-model="ceName" />
         </div>
+        <div id="width">
+          <h3>IFrame Width</h3>
+          <input type="text" v-model="width" />
+          <input type="range" min="100" max="1000" v-model="width" />
+        </div>
+        <div id="height">
+          <h3>Iframe Height</h3>
+          <input type="text" v-model="height" />
+          <input type="range" min="100" max="1000" v-model="height" />
+        </div>
         <br />
         <div v-for="input in inputs" :key="input.key">
           <div>
@@ -34,12 +44,12 @@
             <input placeholder="value" type="text" v-model="input.value" />
           </div>
         </div>
-        <button @click="addInput">+</button>
+        <button @click="addInput">+ new attributes</button>
       </form>
       <div id="iframe">
         <iframe
-          width="600"
-          height="300"
+          :width="width"
+          :height="height"
           :src="iframeUrl"
           frameborder="0"
         ></iframe>
