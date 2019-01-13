@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Custom Element to IFrame Generator</title>
+    <style>
+      #generator {
+        display: flex;
+        flex-direction: row;
+      }
+      #iframe {
+        display: flex;
+        flex-direction: column;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Web Component (Custom Element) to iFrame converter</h1>
+    <div id="generator">
+      <form @submit.prevent>
+        <div id="url">
+          <h3>Url</h3>
+          <input type="text" v-model="url" />
+        </div>
+        <div id="custom-element">
+          <h3>Custom Element Name</h3>
+          <input type="text" v-model="ceName" />
+        </div>
+        <div id="width">
+          <h3>IFrame Width</h3>
+          <input type="text" v-model="width" />
+          <input type="range" min="100" max="1000" v-model="width" />
+        </div>
+        <div id="height">
+          <h3>Iframe Height</h3>
+          <input type="text" v-model="height" />
+          <input type="range" min="100" max="1000" v-model="height" />
+        </div>
+        <br />
+        <div v-for="input in inputs" :key="input.key">
+          <div>
+            <input placeholder="name" type="text" v-model="input.name" />
+            <input placeholder="value" type="text" v-model="input.value" />
+          </div>
+        </div>
+        <button @click="addInput">+ new attributes</button>
+      </form>
+      <div id="iframe">
+        <iframe
+          :width="width"
+          :height="height"
+          :src="iframeUrl"
+          frameborder="0"
+        ></iframe>
+        <textarea @click="selectAll" readonly cols="30" rows="10">{{
+          iframeCode
+        }}</textarea>
+      </div>
+    </div>
+    <!-- SCRIPT HERE -->
+  <script type="text/javascript" src="generator.js"></script></body>
+</html>
