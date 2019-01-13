@@ -31,7 +31,7 @@ new Vue({
         ...this.inputs.filter(d => d.name !== "")
       ];
       let encoded = defaultLoc.map(d => `${d.name}=${d.value}`).join("&");
-      return `${window.location.origin}/?${encoded}`;
+      return `${window.location.origin}${window.location.pathname}?${encoded}`;
     },
     iframeCode: function() {
       return `<iframe src="${this.iframeUrl}" />`;
