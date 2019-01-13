@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Custom Element to IFrame Generator</title>
+    <style>
+      #generator {
+        display: flex;
+        flex-direction: row;
+      }
+      #iframe {
+        display: flex;
+        flex-direction: column;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="generator">
+      <form @submit.prevent>
+        <div id="url">
+          <h3>Url</h3>
+          <input type="text" v-model="url" />
+        </div>
+        <div id="custom-element">
+          <h3>Custom Element Name</h3>
+          <input type="text" v-model="ceName" />
+        </div>
+        <br />
+        <div v-for="input in inputs" :key="input.key">
+          <div>
+            <input placeholder="name" type="text" v-model="input.name" />
+            <input placeholder="value" type="text" v-model="input.value" />
+          </div>
+        </div>
+        <button @click="addInput">+</button>
+      </form>
+      <div id="iframe">
+        <iframe
+          width="600"
+          height="300"
+          :src="iframeUrl"
+          frameborder="0"
+        ></iframe>
+        <textarea @click="selectAll" readonly cols="30" rows="10">{{
+          iframeCode
+        }}</textarea>
+      </div>
+    </div>
+    <!-- SCRIPT HERE -->
+  </body>
+</html>

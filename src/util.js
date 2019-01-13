@@ -32,7 +32,7 @@ export const loadScript = (src, resolve = () => {}, reject = () => {}) => {
   js.src = src;
   js.onload = resolve;
   js.onerror = function() {
-    reject(new Error("Failed to load script " + srcObj.src));
+    reject(new Error("Failed to load script " + src));
   };
   document.head.appendChild(js);
 };
